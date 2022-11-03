@@ -1,0 +1,96 @@
+#!/bin/sh
+clear
+version="1.1.8"
+
+method () {
+clear
+
+echo "Select Execution mode for Checkra1n"
+echo "-----------------------------------"	
+echo "1 - CLI Mode (terminal execution)"
+echo "2	- Normal Mode (graphical)"
+echo "3 - Return to Menu"
+echo "-----------------------------------"
+echo -n "Choose : "
+read -r sel
+case "$sel" in
+1)
+exec /usr/local/bin/$var -cv
+menu
+;;
+2)
+exec /usr/local/bin/$var
+menu
+;;
+3)
+menu
+;;
+*)
+echo "Invalid Option , returning"
+sleep 5
+method	
+;;
+esac
+}	
+
+
+menu () {
+echo "Welcome to Checkn1x $version"
+echo "--------------------------"
+echo "Select one of the options"
+echo ""
+echo "1 - Run Latest Checkra1n"
+echo "2 - Run Checkra1n 0.12.3"
+echo "3 - Run Checkra1n 0.12.2"
+echo "4 - Run Checkra1n 0.12.1"
+echo "5 - Run Checkra1n 0.12"
+echo "6 - Run Checkra1n 0.11"
+echo "7 - Run Usbmuxd (Debug)"
+echo "8 - Run Shell (Debug)"
+echo "9 - Reboot"  
+echo "--------------------------"
+echo -n "Choose : "
+read -r option
+case "$option" in
+1)
+var="checkra1n"
+method
+;;
+2)
+var="checkra1n0123"
+method
+;;
+3)
+var="checkra1n0122"
+method
+;;
+4)
+var="checkra1n0121"
+method
+;;
+5)
+var="checkra1n012"
+method
+;;
+6)
+var="checkra1n011"
+method
+;;
+7)
+exec /usr/sbin/usbmuxd -f
+;;
+8)
+exec /bin/login -f root
+;;
+9)
+exec /sbin/reboot -f
+;;
+*)
+clear
+echo "Invalid Input , Returning to menu"
+sleep 5
+menu
+;;
+esac
+}
+
