@@ -41,7 +41,7 @@ http://dl-cdn.alpinelinux.org/alpine/edge/testing
 
 cat << ! | chroot rootfs /usr/bin/env PATH=/usr/bin:/bin:/usr/sbin:/sbin:/lib /bin/sh
 apk update update && apk upgrade 
-apk add alpine-base ncurses-terminfo-base 
+apk add alpine-base ncurses-terminfo-base libssl3
 apk add udev openrc
 apk add usbmuxd libusbmuxd-progs sshpass usbutils
 apk add --no-scripts linux-lts linux-firmware-none
